@@ -235,15 +235,17 @@ def init_db():
                 )
             """)
 
-            # Главный админ
-            cursor.execute("""
-                INSERT INTO bot_admins
-                    (telegram_id, role)
-                VALUES
-                    (%s, 'owner')
-                ON CONFLICT (telegram_id)
-                DO UPDATE SET role = 'owner'
-            """, (ADMIN_ID,))
+            # Администраторы
+            for admin_id in ADMIN_IDS:
+                cursor.execute("""
+                    INSERT INTO bot_admins
+                        (telegram_id, role)
+                    VALUES
+                        (%s, 'owner')
+                    ON CONFLICT (telegram_id)
+                    DO UPDATE SET role = 'owner'
+                """, (admin_id,))
+
 
             # Настройка триггеров группы
             cursor.execute("""

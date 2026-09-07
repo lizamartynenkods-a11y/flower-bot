@@ -27,7 +27,14 @@ from telegram.ext import (
 BOT_TOKEN = os.environ["BOT_TOKEN"]
 
 # ТВОЙ Telegram ID — главный администратор
-ADMIN_IDS = 7256265881
+ADMIN_IDS = [
+    int(x.strip())
+    for x in os.environ.get(
+        "ADMIN_IDS",
+        "7256265881"
+    ).split(",")
+    if x.strip()
+]
 
 WEBHOOK_SECRET = "sklad-kustikov-2026-secret-8472"
 

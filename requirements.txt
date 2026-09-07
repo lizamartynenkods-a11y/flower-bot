@@ -1,5 +1,5 @@
-Flask
+Flask[async]
+gunicorn
 python-telegram-bot
 psycopg2-binary
 openpyxl
-gunicorn

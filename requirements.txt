@@ -1,0 +1,5 @@
+Flask
+python-telegram-bot
+psycopg2-binary
+openpyxl
+gunicorn
